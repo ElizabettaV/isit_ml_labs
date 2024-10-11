@@ -10,3 +10,7 @@ def nearest_value(matrix: npt.NDArray[np.float_], value: float) -> float | None:
     :param value: value to find
     :return: nearest value in matrix or None
     """
+    if matrix.size == 0:
+        return None
+    matrix = np.asarray(matrix)
+    return matrix.flat[np.abs(matrix - value).argmin()]
